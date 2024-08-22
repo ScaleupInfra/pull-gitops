@@ -38,12 +38,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Update deployment.yml
+      - name: Update deployment.yaml
         run: |
-          sed -E -i "s/garvit3835\/chat-ser[a-zA-Z0-9:/\-]+/garvit3835\/pull-gitops:${{ github.sha }}/g" k8s/deploy.yml
+          sed -E -i "s/garvit3835\/chat-ser[a-zA-Z0-9:/\-]+/garvit3835\/pull-gitops:${{ github.sha }}/g" k8s/deploy.yaml
 
       - name: Stage changes
-        run: git add k8s/deploy.yml
+        run: git add k8s/deploy.yaml
 
       - name: Set Git user identity
         run: |
@@ -51,7 +51,7 @@ jobs:
           git config --global user.name "garvit3835"
     
       - name: Commit changes
-        run: git commit -m "Update k8s manifest" k8s/deploy.yml
+        run: git commit -m "Update k8s manifest" k8s/deploy.yaml
   
       - name: Push changes
         uses: ad-m/github-push-action@master
