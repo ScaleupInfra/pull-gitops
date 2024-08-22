@@ -30,6 +30,6 @@ spec:
     spec:
       containers:
         - name: pull-container
-          image: garvit3835/pull-gitops:4ce68e07a2d0a7d41f9c8611741cbf58739e534d
+          image: garvit3835/pull-gitops:022342afdb09c5d0569fb405f00423fb4bcee7ba
           ports:
             - containerPort: 3000
