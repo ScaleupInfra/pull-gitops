@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vc-chat-argo-app
+  name: argo-pipeline
   namespace: argocd
 
 spec:
