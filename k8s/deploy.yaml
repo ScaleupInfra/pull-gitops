@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pull-svc
+spec:
+  selector:
+    name: pull-pod
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pull-deploy
+  labels:
+    name: pull-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: pull-pod
+  template:
+    metadata:
+      labels:
+        name: pull-pod
+    spec:
+      containers:
+        - name: pull-container
+          image: garvit3835/pull-gitops:latest
+          ports:
+            - containerPort: 3000
