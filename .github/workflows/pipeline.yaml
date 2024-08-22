@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Update deployment.yaml
         run: |
-          sed -E -i "s/garvit3835\/chat-ser[a-zA-Z0-9:/\-]+/garvit3835\/pull-gitops:${{ github.sha }}/g" k8s/deploy.yaml
+          sed -E -i "s/garvit3835\/pull-git[a-zA-Z0-9:/\-]+/garvit3835\/pull-gitops:${{ github.sha }}/g" k8s/deploy.yaml
 
       - name: Stage changes
         run: git add k8s/deploy.yaml
